@@ -1,0 +1,6 @@
+<app-header></app-header>
+<h1>Sign Up</h1>
+<div class="signup-container">
+  <app-email-pass-form (formdata)="setEmailpass($event)"></app-email-pass-form>
+</div>
+<button (click)="backToLogin()">Back</button>

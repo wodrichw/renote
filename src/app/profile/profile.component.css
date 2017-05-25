@@ -1,0 +1,6 @@
+.attribute-container{
+  border: 2px solid lightblue;
+  max-width: 500px;
+  margin: 2%;
+  border-radius: 5px;
+}

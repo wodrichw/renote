@@ -1,0 +1,28 @@
+<button type="button" (click)="routeToMember()">Member Page</button>
+
+<div id="name" class="attribute-container">
+  <h3>User Name</h3>
+  <div *ngIf="!updateUsername">
+    <p>{{username}}</p>
+    <button type="button" (click)="setUpdateUsername()">Update Username</button>
+  </div>
+  <div *ngIf="updateUsername">
+    <input type="text"class="form-control" [(ngModel)]="username">
+    <button type="button" (click)="updateUsernameFirebase()">Submit</button>
+  </div>
+</div>
+<div id="photoid">
+
+</div>
+
+<div id="bio" class="attribute-container">
+  <h3>Bio</h3>
+  <div *ngIf="!updateBio">
+    <p>{{bio}}</p>
+    <button type="button" (click)="setUpdateBio()">Update Bio</button>
+  </div>
+  <div *ngIf="updateBio" class="form-group">
+    <textarea class="form-control" rows="7" [(ngModel)]="bio"></textarea>
+    <button type="button" (click)="updateBioFirebase()">Submit</button>
+  </div>
+</div>

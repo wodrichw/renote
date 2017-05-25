@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Email Form</h1>
+  <form (ngSubmit)="onSubmit()" #emailPassForm="ngForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="model.email" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="" #email="ngModel">
+      <div [hidden]="email.valid || email.pristine"
+            class="alert alert-danger">
+         Email is invalid
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pass">Password</label>
+      <input class="form-control" id="pass"  required type="password" [(ngModel)]="model.pass" name="pass" pattern=".{8,20}" placeholder="" #pass="ngModel">
+      <div [hidden]="pass.valid || pass.pristine"
+            class="alert alert-danger">
+         Between 8 and 20 characters
+       </div>
+    </div>
+
+    <button (submitdata)="[model.email, model.pass]" type="submit" class="btn btn-seccess" [disabled]="!emailPassForm.form.valid">Submit</button>
+  </form>
+  <div *ngIf="submitted">
+    <p>Email: {{model.email}} Pass: {{model.pass}}</p>
+  </div>
+</div>
