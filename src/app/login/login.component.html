@@ -1,7 +1,13 @@
-<h1>Login Page</h1>
-<div id="login-container">
-  <app-email-pass-form (formdata)="setEmailpass($event)"></app-email-pass-form>
-  <button (click)="loginGoogle()">Login with Google </button>
-</div>
+<div class="component">
+  <div class="container">
+    <h1>Login</h1>
+    <div class="row justify-content-md-center">
+      <div id="login-container" class="col-10">
+        <app-email-pass-form (formdata)="setEmailpass($event)"></app-email-pass-form>
+        <button id="google-btn" class="btn btn-seccess" (click)="loginGoogle()">Login with Google </button>
+      </div>
+    </div>
+    <button class="btn btn-seccess" (click)="signup()">Sign Up</button>
 
-<button (click)="signup()">Sign Up</button>
+  </div>
+</div>

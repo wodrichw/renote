@@ -21,4 +21,5 @@ export class EmailPassFormComponent implements OnInit {
     this.submitted = true;
     this.formdata.next(this.model);
   }
+  
 }

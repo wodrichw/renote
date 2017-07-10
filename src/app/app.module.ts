@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core'
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Angulartics2GoogleAnalytics } from 'angulartics2'
-import { ImageUploadModule } from 'angular2-image-upload'
-import { AppRoutingModule } from './app-routing.module'
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+import { ImageUploadModule } from 'angular2-image-upload';
+import { AppRoutingModule } from './app-routing.module';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-import { AngularFireModule } from 'angularfire2'
-import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth'
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -23,6 +24,10 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChatComponent } from './chat/chat.component';
 import { BlogComponent } from './blog/blog.component';
+import { AboutComponent } from './about/about.component';
+import { DonateComponent } from './donate/donate.component';
+import { ProgressComponent } from './progress/progress.component';
+import { ConnectComponent } from './connect/connect.component';
 
 export const FIRECONFIG = {
   apiKey: "AIzaSyDiZ1YBms2zgTNk1jULGT-NpdBsraIhNVo",
@@ -47,15 +52,22 @@ export const FIRECONFIG = {
     ProfileComponent,
     ChatComponent,
     BlogComponent,
+    AboutComponent,
+    DonateComponent,
+    ProgressComponent,
+    ConnectComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
     ImageUploadModule.forRoot(),
     AngularFireModule.initializeApp(FIRECONFIG, 'my-app'),
     AngularFireAuthModule,
-    AppRoutingModule
+    AngularFireDatabaseModule,
+    AppRoutingModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

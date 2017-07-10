@@ -15,7 +15,7 @@ export class ProfileComponent{
   public member: any;
   public storage: any;
   public database: any;
-  public user: firebase.User;
+  public user: any;
   bio: string;
   username: string;
 

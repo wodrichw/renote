@@ -15,11 +15,11 @@ export class MembersComponent implements OnInit {
   public member: any;
   public storage: any;
   public database: any;
-  public user: firebase.User;
+  public user: any;
 
   constructor( @Inject(FirebaseApp) firebaseApp: firebase.app.App, public afAuth: AngularFireAuth, private router: Router) {
     this.afAuth.authState.subscribe(auth => {
-      if (auth) {
+      if (auth != null) {
         this.user = auth;
         this.database = firebaseApp.database();
         this.database.ref('users/' + auth.uid).update({

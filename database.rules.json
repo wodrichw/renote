@@ -1,6 +1,14 @@
 {
   "rules": {
     ".read": "auth != null",
-    ".write": "auth != null"
+    ".write": "auth != null",
+    "emailMessages": {
+      ".write": true,
+      ".read": true
+    },
+    "sentMessages": {
+      ".write": true,
+      ".read": true
+    }
   }
 }

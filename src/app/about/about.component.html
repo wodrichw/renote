@@ -1,0 +1,79 @@
+<div class="component">
+  <div class="container">
+    <div class="section">
+      <div class="article">
+        <div class="article-head">
+          <h3>Purpose of Renote</h3>
+        </div>
+        <div class="article-body">
+          <p>
+            When it comes to effectiveness, there is no comparison to handwritten notes. Many well established <a href="http://www.npr.org/2016/04/17/474525392/attention-students-put-your-laptops-away"
+              target="_blank">articles</a> state this to be true. Handwriting notes as opposed to typing them increases creativity,
+            and retention of what is being scribed. However, in an electronic age, it is becoming more difficult to exclusively
+            use pen and paper. This what sparked the idea for Renote.
+            <br>
+            <br> Renote is a webapp that can convert your notes on pen and paper to electronic text.
+          </p>
+        </div>
+      </div>
+
+      <div class="article">
+        <div class="article-head">
+          <h3>How to Use Renote</h3>
+        </div>
+        <div class="article-body">
+          <p>
+            To use Renote, you must first create a Renote account. Once you login, you are able to upload an image (as a jpeg) of your
+            handwritten notes. Renote will then take your image and process it into text. From there, you will have a text
+            file that contains the text from you notes on pen and paper. You have several options for storing your text file.
+            You can store it on your Renote account, download the file, or upload that file to your Google Drive. You can
+            additionally create folders on your Renote account to store your text files in so that you can stay more organized.
+          </p>
+        </div>
+      </div>
+      <div class="article">
+        <div class="article-head">
+          <h3>How Renote Works</h3>
+        </div>
+        <div class="article-body">
+          <p>
+            Renote is able to convert an image of handwriting to electronic text through a technology called <a href="https://en.wikipedia.org/wiki/Optical_character_recognition"
+              target="_blank">optical character recognition</a> (OCR). OCR looks at an image of a letter, and guesses what
+            character it is looking at. This is a difficult thing for computers to do. So to help guess what letters it is
+            looking at, Renote also uses something called a <a href="https://en.wikipedia.org/wiki/Artificial_neural_network"
+              target="_blank">neuronet</a>. A neuronet is a type of machine learning algorithm that is based off how neurons
+            interact with each other in a brain. It allows Renote to learn from the previous data it has looked at. This
+            means that Renote will become more accurate over time.
+          </p>
+        </div>
+        <div class="article">
+          <div class="article-head">
+            <h3>Renote is Build with Angular and Firebase</h3>
+          </div>
+          <div class="article-body">
+            <p>
+              <a href="https://en.wikipedia.org/wiki/AngularJS">Angular</a> is a javascript framework that is created by
+              Google. The cool feature of Angular, is it allows for 2-way data binding. This means that Angular will detect
+              when there is changes in java script files and automatically update the DOM. This makes developing in Angular
+              very simple for DOM interactions.
+              <br>
+              <br> <a href="https://en.wikipedia.org/wiki/Firebase">Firebase</a> is a database service that updates in real
+              time. Firebase provides an API for Angular that allows all cloud data to be synchronized for all clients accessing
+              Renote.
+              <br>
+              <br> Angular and Firebase together form a beautiful symbiotic relationship. The Angular 2-way data binding
+              automatically updates the DOM when there are updates in the module and vice versa. Combine this with the Firebase
+              API that listens for updates in the Angular module and automatically updates the database, and you get a sort
+              of 3-way data binding. Meaning that whenever there is an update in either the DOM, Angular module, or the Firebase
+              database, the other two will automatically be updated as well.
+              <br>
+              <br> Let’s look at how this benefits Renote. Say you just took a picture of your notes converted it to text
+              with Renote on your phone. You then store that text file in a folder on your Renote account. If you also were
+              logged into Renote on you laptop, you would instantly see the added file from your phone, without having to
+              refresh your browser.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

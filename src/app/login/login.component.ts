@@ -19,7 +19,6 @@ import { OnLoginService } from './../on-login.index'
 export class LoginComponent {
   model: FormData;
   user: Observable<firebase.User>;
-  loggedIn = false;
   userInit: Observable<firebase.User>;
 
   constructor(public afAuth: AngularFireAuth, private router: Router,private _onLoginService: OnLoginService) {
@@ -27,7 +26,7 @@ export class LoginComponent {
     this.userInit = this.user;
     this.afAuth.authState.subscribe(auth => {
       if(auth) {
-        this.router.navigateByUrl('/members')
+        this.router.navigateByUrl('/members');
       }
     });
   }
