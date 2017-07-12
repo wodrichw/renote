@@ -6,34 +6,26 @@ import { LoginComponent } from './login/login.component';
 import { EmailPassFormComponent } from './email-pass-form/email-pass-form.component';
 import { SignupComponent } from './signup/signup.component';
 import { MembersComponent } from './members/members.component';
-import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ChatComponent } from './chat/chat.component'
-import { AboutComponent } from './about/about.component'
-import { DonateComponent } from './donate/donate.component'
-import { ProgressComponent } from './progress/progress.component'
-import { ConnectComponent } from './connect/connect.component'
+import { AboutComponent } from './about/about.component';
+import { DonateComponent } from './donate/donate.component';
+import { ProgressComponent } from './progress/progress.component';
+import { ConnectComponent } from './connect/connect.component';
+import { ForumComponent } from './forum/forum.component';
 
 export const appROUTES: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full'},
-  { path: 'about', redirectTo: 'about', pathMatch: 'full'},
-  { path: 'login', redirectTo: 'login', pathMatch: 'full'},
-  { path: 'signup', redirectTo: 'signup', pathMatch: 'full'},
-  { path: 'donate', redirectTo: 'donate', pathMatch: 'full'},
-  { path: 'progress', redirectTo: 'progress', pathMatch: 'full'},
-  { path: 'connect', redirectTo: 'connect', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component:  SignupComponent},
-  { path: 'admin', component: AdminComponent},
   { path: 'members', component: MembersComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'chat', component: ChatComponent},
   { path: 'about', component: AboutComponent},
   { path: 'donate', component: DonateComponent},
   { path: 'progress', component: ProgressComponent},
-  { path: 'connect', component: ConnectComponent}
+  { path: 'connect', component: ConnectComponent},
+  { path: 'forum', component: ForumComponent}
 ];
 
 

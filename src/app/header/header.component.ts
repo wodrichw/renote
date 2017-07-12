@@ -1,47 +1,55 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { FirebaseApp } from 'angularfire2';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase';
+import { Logout } from './../logout';
+import { UserDataService } from './../user-data.service';
 
-import { OnLoginService } from './../on-login.index'
-import { Subscription } from 'rxjs/Subscription'
+const navLinksLeft: string[][] = [
+  ['about', 'About'],
+  ['donate', 'Donate'],
+  ['connect', 'Connect'],
+  ['progress', 'Progress'],
+  ['login', 'Check Out Renote'],
+  ['forum', 'Community Message Board']
+];
+const navLinksRight: string[][] = [
+  ['members', 'Convert']
+];
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
-  providers: [OnLoginService]
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  uid: string;
-  private uname: string;
-  private uemail: string ;
-  private uphoto: string;
-  private database: firebase.database.Database;
-  subscription: any;
+  private linksL = navLinksLeft;
+  private linksR = navLinksRight;
+  private loggedIn: boolean = false;
+  private dispName: string = 'Profile';
+  private uid: Observable<string>;
 
+  constructor(private db: AngularFireDatabase, private router: Router, private afAuth: AngularFireAuth, private udService: UserDataService) {
+    this.uid = udService.getUser();
 
-
-  constructor(@Inject(FirebaseApp) firebaseApp: firebase.app.App, private onLoginService: OnLoginService) {
-    this.database = firebaseApp.database();
-  }
-
-  @Input()
-  set _uid(uid: string){
-    this.uid = uid;
-    const dbRef = this.database.ref('users/'+this.uid);
-    dbRef.child('email').on('value', snap => {
-      this.uemail = snap.val();
-    });
-    dbRef.child('username').on('value', snap => {
-      this.uname = snap.val();
+    this.uid.subscribe(uid => {
+      db.object(`users/${uid}/displayName`, { preserveSnapshot: true }).subscribe(snap => {
+        if (snap.val() != null){
+          this.dispName = snap.val();
+          this.loggedIn = true;
+        } else {
+          this.dispName = 'Profile'
+          this.loggedIn = false;
+        }
+      });
     });
   }
 
-  updateUname(val: string){
-    this.uname = val;
-  }
-  updateUemail(val: string){
-    this.uemail = val;
+  logout(): void{
+    this.udService.setUid('null');
+    this.afAuth.auth.signOut();
+    this.router.navigateByUrl('login');
   }
 }

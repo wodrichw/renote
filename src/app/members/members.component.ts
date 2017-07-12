@@ -3,7 +3,9 @@ import { FirebaseApp } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import { ImageUploadModule }from 'angular2-image-upload'
-import * as firebase from 'firebase'
+import { Logout } from './../logout';
+import * as firebase from 'firebase';
+import { UserDataService } from './../user-data.service';
 
 
 @Component({
@@ -12,12 +14,12 @@ import * as firebase from 'firebase'
   styleUrls: ['./members.component.css']
 })
 export class MembersComponent implements OnInit {
-  public member: any;
-  public storage: any;
-  public database: any;
-  public user: any;
+  private member: any;
+  private storage: any;
+  private database: any;
+  private user: any;
 
-  constructor( @Inject(FirebaseApp) firebaseApp: firebase.app.App, public afAuth: AngularFireAuth, private router: Router) {
+  constructor( @Inject(FirebaseApp) firebaseApp: firebase.app.App, private udService: UserDataService, private afAuth: AngularFireAuth, private router: Router) {
     this.afAuth.authState.subscribe(auth => {
       if (auth != null) {
         this.user = auth;
@@ -34,6 +36,7 @@ export class MembersComponent implements OnInit {
   ngOnInit() { }
 
   logout() {
+    this.udService.setUid('null');
     this.afAuth.auth.signOut();
     this.router.navigateByUrl('login');
   }

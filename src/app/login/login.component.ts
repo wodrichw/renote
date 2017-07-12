@@ -8,20 +8,19 @@ import * as firebase from 'firebase/app';
 
 import { Router } from '@angular/router';
 
-import { OnLoginService } from './../on-login.index'
+import { UserDataService } from './../user-data.service'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [ OnLoginService ]
 })
 export class LoginComponent {
   model: FormData;
   user: Observable<firebase.User>;
   userInit: Observable<firebase.User>;
 
-  constructor(public afAuth: AngularFireAuth, private router: Router,private _onLoginService: OnLoginService) {
+  constructor(public afAuth: AngularFireAuth, private router: Router,private udService: UserDataService) {
     this.user =  afAuth.authState;
     this.userInit = this.user;
     this.afAuth.authState.subscribe(auth => {
@@ -36,7 +35,7 @@ export class LoginComponent {
     firebase.auth().signInWithEmailAndPassword(this.model.email, this.model.pass);
     this.afAuth.auth.onAuthStateChanged(auth => {
       if(auth) {
-        this._onLoginService.setLogin(auth.uid);
+        this.udService.setUid(auth.uid);
         this.router.navigateByUrl('/members');
       }
     });
@@ -45,7 +44,7 @@ export class LoginComponent {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     this.afAuth.auth.onAuthStateChanged(auth => {
       if(auth) {
-        this._onLoginService.setLogin(auth.uid);
+        this.udService.setUid(auth.uid);
         this.router.navigateByUrl('/members');
       }
     });

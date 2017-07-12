@@ -1,28 +1,28 @@
-<button type="button" (click)="routeToMember()">Member Page</button>
-
-<div id="name" class="attribute-container">
-  <h3>User Name</h3>
-  <div *ngIf="!updateUsername">
-    <p>{{username}}</p>
-    <button type="button" (click)="setUpdateUsername()">Update Username</button>
-  </div>
-  <div *ngIf="updateUsername">
-    <input type="text"class="form-control" [(ngModel)]="username">
-    <button type="button" (click)="updateUsernameFirebase()">Submit</button>
-  </div>
-</div>
-<div id="photoid">
-
-</div>
-
-<div id="bio" class="attribute-container">
-  <h3>Bio</h3>
-  <div *ngIf="!updateBio">
-    <p>{{bio}}</p>
-    <button type="button" (click)="setUpdateBio()">Update Bio</button>
-  </div>
-  <div *ngIf="updateBio" class="form-group">
-    <textarea class="form-control" rows="7" [(ngModel)]="bio"></textarea>
-    <button type="button" (click)="updateBioFirebase()">Submit</button>
+<div class="component">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+        <div class="input-box">
+          <h4>Name</h4>
+          <input type="text" class="form-control" [(ngModel)]="username">
+        </div>
+        <div class="input-box">
+          <h4>Bio</h4>
+          <textarea class="form-control" rows="7" [(ngModel)]="bio"></textarea>
+        </div>
+        <div class="input-box table">
+          <tr>
+            <td>
+              <button class="btn btn-seccess" type="button" (click)="updateProfileData()">Update Profile</button>
+            </td>
+            <td>
+              <div *ngIf="confirmUpdate" id="success">
+                <p>✓</p>
+              </div>
+            </td>
+          </tr>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,6 +1,17 @@
 {
   "database": {
-    "rules": "database.rules.json"
+    "rules": {
+      ".read": true,
+      ".write": true,
+      "emailMessages": {
+        ".write": true,
+        ".read": true
+      },
+      "sentMessages": {
+        ".write": true,
+        ".read": true
+      }
+    }
   },
   "hosting": {
     "public": "dist",

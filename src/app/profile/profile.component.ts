@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FirebaseApp } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database'
 import { Router } from '@angular/router';
 import { ImageUploadModule }from 'angular2-image-upload'
 import * as firebase from 'firebase'
@@ -12,15 +13,13 @@ import * as firebase from 'firebase'
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent{
-  public member: any;
-  public storage: any;
-  public database: any;
-  public user: any;
-  bio: string;
-  username: string;
+  private database: any;
+  private user: firebase.User;
+  private bio: string;
+  private username: string;
 
-  updateBio: boolean = false;
-  updateUsername: boolean = false;
+  private confirmUpdate: boolean = false;
+
 
   constructor( @Inject(FirebaseApp) firebaseApp: firebase.app.App, public afAuth: AngularFireAuth, private router: Router) {
     this.afAuth.authState.subscribe(auth => {
@@ -38,27 +37,19 @@ export class ProfileComponent{
     });
   }
 
-  setUpdateBio(){
-    this. updateBio = true;
-  }
-  updateBioFirebase(){
+  async updateProfileData(){
     this.database.ref('users/' + this.user.uid).update(
       {bio: this.bio}
     );
-    this.updateBio = false;
-  }
-
-  setUpdateUsername(){
-    this.updateUsername = true;
-  }
-  updateUsernameFirebase(){
     this.database.ref('users/'+ this.user.uid).update(
       {displayName: this.username}
     );
-    this.updateUsername = false;
-  }
 
-  routeToMember(){
-    this.router.navigateByUrl('members')
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    this.confirmUpdate = true;
+    await sleep (1000);
+    this.confirmUpdate = false;
   }
 }

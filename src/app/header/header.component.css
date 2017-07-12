@@ -3,6 +3,15 @@
 
 }
 
+.selectable :hover{
+ background:rgba(255,255,255, 0.75);
+ border-radius: 10px; 
+}
+
 #subheader {
   font-size: 100%;
 }
+#profile-card{
+  margin-right: 80px;
+}
+
