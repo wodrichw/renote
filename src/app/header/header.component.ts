@@ -11,8 +11,8 @@ const navLinksLeft: string[][] = [
   ['donate', 'Donate'],
   ['connect', 'Connect'],
   ['progress', 'Progress'],
-  ['login', 'Check Out Renote'],
-  ['forum', 'Community Message Board']
+  ['forum', 'Community Message Board'],
+  ['login', 'Check Out Renote']
 ];
 const navLinksRight: string[][] = [
   ['members', 'Convert']
@@ -32,11 +32,11 @@ export class HeaderComponent {
   private uid: Observable<string>;
 
   constructor(private db: AngularFireDatabase, private router: Router, private afAuth: AngularFireAuth, private udService: UserDataService) {
-    this.uid = udService.getUser();
+    this.uid = udService.getUid();
 
     this.uid.subscribe(uid => {
-      db.object(`users/${uid}/displayName`, { preserveSnapshot: true }).subscribe(snap => {
-        if (snap.val() != null){
+      db.object(`users/${uid}/username`, { preserveSnapshot: true }).subscribe(snap => {
+        if (snap.val() != null) {
           this.dispName = snap.val();
           this.loggedIn = true;
         } else {
@@ -47,7 +47,7 @@ export class HeaderComponent {
     });
   }
 
-  logout(): void{
+  logout(): void {
     this.udService.setUid('null');
     this.afAuth.auth.signOut();
     this.router.navigateByUrl('login');

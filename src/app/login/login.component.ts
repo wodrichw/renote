@@ -25,6 +25,7 @@ export class LoginComponent {
     this.userInit = this.user;
     this.afAuth.authState.subscribe(auth => {
       if(auth) {
+        this.udService.setUid(auth.uid);
         this.router.navigateByUrl('/members');
       }
     });

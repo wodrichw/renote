@@ -1,3 +1,32 @@
-<p>
-  forum works!
-</p>
+<div class="component">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <app-chat-box></app-chat-box>
+      </div>
+      <div class="col-4">
+        <div *ngIf="seeProfile">
+          <button type="text" (click)="doneInquiring()">Back</button>
+          <app-inquire-profile></app-inquire-profile>
+        </div>
+        <div *ngIf="!seeProfile">
+          <h4>Online Users</h4>
+          <ul>
+            <li *ngFor="let user of users | async">
+              <table>
+                <tr>
+                  <td>
+                    {{user.username}}
+                  </td>
+                  <td (click)="checkoutProfile(user.$key)">
+                    Checkout Profile
+                  </td>
+                </tr>
+              </table>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

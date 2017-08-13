@@ -16,10 +16,9 @@
         Between 8 and 20 characters
       </div>
     </div>
-
-    <button (submitdata)="[model.email, model.pass]" type="submit" class="btn btn-seccess" [disabled]="!emailPassForm.form.valid">Submit</button>
+    <button (submitdata)="[model.email, model.pass, model.username]" type="submit" class="btn btn-seccess" [disabled]="!emailPassForm.form.valid">Submit</button>
+    <div *ngIf="submitted ">
+      <p>Email: {{model.email}} Pass: {{model.pass}}</p>
+    </div>
   </form>
-  <div *ngIf="submitted">
-    <p>Email: {{model.email}} Pass: {{model.pass}}</p>
-  </div>
 </div>

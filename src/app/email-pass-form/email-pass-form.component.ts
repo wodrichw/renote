@@ -8,9 +8,8 @@ import { FormData } from './form-data'
 })
 export class EmailPassFormComponent implements OnInit {
   submitted = false;
-  showpassword = false
-  model =  new FormData("", "")
-
+  showpassword = false;
+  model =  new FormData("", "");
   @Output() formdata: EventEmitter<FormData> = new EventEmitter<FormData>();
 
   constructor() { }
@@ -21,5 +20,4 @@ export class EmailPassFormComponent implements OnInit {
     this.submitted = true;
     this.formdata.next(this.model);
   }
-  
 }

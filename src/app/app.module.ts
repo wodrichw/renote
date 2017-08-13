@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core'
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 import { ImageUploadModule } from 'angular2-image-upload';
@@ -11,6 +12,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { VirtualScrollModule } from 'angular2-virtual-scroll';
 
 //Services
 import { UserDataService } from './user-data.service';
@@ -27,7 +29,11 @@ import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ConnectComponent } from './connect/connect.component';
-import { ForumComponent } from './forum/forum.component';
+import { ForumComponent} from './forum/forum.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
+import { ProfileSettingsFormComponent } from './profile-settings-form/profile-settings-form.component';
+import { InquireProfileComponent } from './inquire-profile/inquire-profile.component';
+import { ChatBoxComponent } from './chat-box/chat-box.component';
 
 
 
@@ -55,11 +61,16 @@ export const FIRECONFIG = {
     DonateComponent,
     ProgressComponent,
     ConnectComponent,
-    ForumComponent
+    SignupFormComponent,
+    ForumComponent,
+    ProfileSettingsFormComponent,
+    InquireProfileComponent,
+    ChatBoxComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     ImageUploadModule.forRoot(),
@@ -67,7 +78,8 @@ export const FIRECONFIG = {
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    VirtualScrollModule
   ],
   providers: [
     UserDataService

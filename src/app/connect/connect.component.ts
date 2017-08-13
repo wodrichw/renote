@@ -29,20 +29,3 @@ export class ConnectComponent implements OnInit {
     });
   }
 }
-
-/*
-var server = email.server.connect({
-      user: "william",
-      password: "Woody1##",
-      host: "notes2text@gmail.com",
-      ssl: true
-    });
-
-    // send the message and get a callback with an error or details of the message that was sent 
-    server.send({
-      text: this.formData.name + "\n" + this.formData.email + "\n" + this.formData.message,
-      from: "notes2text@gmail.com",
-      to: "notes2text@gmail.com",
-      subject: "Renote Connect"
-    }, function (err, message) { console.log(err || message); });
-  */

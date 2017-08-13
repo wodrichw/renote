@@ -1,0 +1,25 @@
+<h2>Message Board</h2>
+<div>
+  <virtual-scroll [items]="messages | async" (update)="viewPortItems = $event">
+    <div *ngFor="let item of viewPortItems">
+      <div>
+        <span>{{item?.author}}</span>
+        <p>{{item?.body}}</p>
+      </div>
+    </div>
+  </virtual-scroll>
+  <ul>
+    <li *ngFor="let message of messages | async">
+      <div>
+        <span>{{message.author}}</span>
+        <p>{{messege.body}}</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h4>Add a Comment</h4>
+  <input type="text" [(ngModel)]="newMessage">
+  <button type="button" (click)="submit"></button>
+</div>"

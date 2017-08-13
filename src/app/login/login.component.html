@@ -2,12 +2,11 @@
   <div class="container">
     <h1>Login</h1>
     <div class="row justify-content-md-center">
-      <div id="login-container" class="col-10">
+      <div id="login-container" class="col-7">
         <app-email-pass-form (formdata)="setEmailpass($event)"></app-email-pass-form>
         <button id="google-btn" class="btn btn-seccess" (click)="loginGoogle()">Login with Google </button>
       </div>
     </div>
     <button class="btn btn-seccess" (click)="signup()">Sign Up</button>
-
   </div>
 </div>

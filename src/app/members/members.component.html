@@ -1,12 +1,5 @@
 <div class="component">
   <div class="container">
-    <!--
-<div class="member-nav">
-  <div class="profile-card" (click)="gotoProfile()">
-    <h4><span *ngIf="user.displayName">{{user.displayName}}</span> <span *ngIf="!user.displayName">{{user.email}}</span></h4>
-  </div>
-</div>
--->
     <image-upload [max]="100" [buttonCaption]="'Select Images!'" [dropBoxMessage]="'Drop your images here!'" (onFileUploadFinish)="imageUploaded($event)"
       (onRemove)="imageRemoved($event)" (isPending)="disableSendButton($event)"></image-upload>
 

@@ -1,0 +1,73 @@
+<div class="container">
+
+  <form [formGroup]="nameBioForm" (ngSubmit)="update($event)">
+    <input formControlName="username" type="email" placeholder="Your email">
+    <input formControlName="" type="password" placeholder="Your password">
+    <button type="submit">Log in</button>
+  </form>
+  <!--
+  <form (ngSubmit)="onSubmit()" #profileSettingsForm="ngForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" required [(ngModel)]="model.username" name="username" placeholder=model.username pattern=".{1,40}" #username="ngModel">
+
+      <div *ngIf="!checkUname(model.username)" class="alert alert-danger">
+        Username is taken
+      </div>
+      <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+        Between 1 and 40 Characters
+      </div>
+    </div>
+    <div class="input-box">
+      <h4>Bio</h4>
+      <textarea class="form-control" [(ngModel)]="model.bio" name="bio" class="form-control" name="bio" #bio="ngModel" rows="7"></textarea>
+    </div>
+    <div class="input-box table">
+      <table>
+        <tr>
+          <td>
+            <button (submitdata)="[model.username, model.bio]" type="submit" class="btn btn-seccess" type="button" [disabled]="!profileSettingsForm.form.valid || !checkUname(model.username)">Update Profile</button>
+          </td>
+          <td>
+            <div *ngIf="confirmUpdate" id="success">
+              <p>✓</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+
+
+  <form (ngSubmit)="onSubmit()" #passwordForm="ngForm">
+    <div class="form-group">
+      <label for="pass">Password</label>
+      <input class="form-control" id="pass" required type="password" [(ngModel)]="model.pass" name="pass" pattern=".{8,40}" #pass="ngModel">
+      <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">
+        Between 8 and 40 characters
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="passConf">Confirm Password</label>
+      <input class="form-control" id="passConf" required [(ngModel)]="model.passConf" type="password" name="passConf" #passConf="ngModel">
+      <div [hidden]="matchPass(model.pass, model.passConf) || passConf.pristine" class="alert alert-danger">
+        Must match password
+      </div>
+    </div>
+    <div class="input-box table">
+      <table>
+        <tr>
+          <td>
+            <button (submitdata)="[model.pass]" type="submit" class="btn btn-seccess" type="button" [disabled]="!passwordForm.form.valid">Update Password</button>
+          </td>
+          <td>
+            <div *ngIf="confirmUpdate" id="success">
+              <p>✓</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+  -->
+</div>

@@ -17,7 +17,6 @@ export class SignupComponent implements OnInit {
   }
   setEmailpass(formdata: FormData): void{
     this.model = formdata;
-
     this.afAuth.auth.createUserWithEmailAndPassword(this.model.email, this.model.pass);
     this.afAuth.auth.onAuthStateChanged(auth => {
       if(auth) {

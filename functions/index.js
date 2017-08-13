@@ -1,12 +1,4 @@
 /*
-*********Serving HTML to web crawlers
-*/
-app.configure(() => {
-
-});
-
-
-/*
 ********* Email
 */
 
@@ -18,10 +10,7 @@ var config = {
     databaseURL: "https://renote-633e0.firebaseio.com",
     storageBucket: "renote-633e0.appspot.com",
 }
-firebase.initializeApp(config, () => {
-    app.use(require('prerender-node').set('prerenderToken', 'e5vNH1ePtkGwDphl3KkB'));
-    app.use(express.static("dist")); app.use(app.router);
-});
+
 
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
