@@ -5,10 +5,9 @@
 var firebase = require("firebase");
 
 var config = {
-    apiKey: "AIzaSyDiZ1YBms2zgTNk1jULGT-NpdBsraIhNVo",
-    authDomain: "renote-633e0.firebaseapp.com",
-    databaseURL: "https://renote-633e0.firebaseio.com",
-    storageBucket: "renote-633e0.appspot.com",
+    *****
+    *****
+    *****
 }
 
 
@@ -31,15 +30,15 @@ exports.contactMessage = functions.database
 function sendEmail(emessage, name, emailAddr) {
     var emailjs = require('emailjs/email');
     var emailData = {
-        from: "Renote Conntect <wwodrich@gmail.com>",
-        to: "Boss Man <wwodrich@gmail.com>",
+        from: "Renote Conntect <*********>",
+        to: "Boss Man <*********>",
         /*cc: "else <else***@gmail.com>",*/
         subject: "Renote Connect",
         text: name + " " + emailAddr + "\n" + emessage
     };
     var server = emailjs.server.connect({
-        user: "wwodrich@gmail.com",
-        password: "1Cystijrtanntgo",
+        user: "************",
+        password: "**********",
         host: "smtp.gmail.com",
         ssl: true
     });
