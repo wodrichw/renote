@@ -1,0 +1,11 @@
+.user{
+  margin: 3px;
+}
+.user:hover{
+  background-color:	rgba(0, 188, 185, 0.07); 
+  border: 1px solid rgba(0, 188, 185, 0.1);
+  cursor: pointer;
+}
+.btn{
+  cursor: pointer;
+}

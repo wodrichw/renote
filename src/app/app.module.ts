@@ -27,7 +27,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
-import { ProgressComponent } from './progress/progress.component';
 import { ConnectComponent } from './connect/connect.component';
 import { ForumComponent} from './forum/forum.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
@@ -59,13 +58,12 @@ export const FIRECONFIG = {
     ProfileComponent,
     AboutComponent,
     DonateComponent,
-    ProgressComponent,
     ConnectComponent,
     SignupFormComponent,
     ForumComponent,
     ProfileSettingsFormComponent,
     InquireProfileComponent,
-    ChatBoxComponent
+    ChatBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +80,7 @@ export const FIRECONFIG = {
     VirtualScrollModule
   ],
   providers: [
-    UserDataService
+    UserDataService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,29 @@
+#message-list{
+  list-style: none;
+  padding: 0;
+}
+.message{
+  max-width: 400px;
+  background-color:	rgba(0, 188, 185, 0.03); 
+  border: 1px solid rgba(0, 188, 185, 0.1);
+  border-radius: 5px;
+  padding: 5px;
+}
+.username{
+  background-color:	rgba(176,176,176,0.3);
+  margin: 5px;
+  padding: 2px;
+  border-radius: 6px;
+}
+.username:hover{
+  cursor: pointer;
+}
+.body{
+  margin-top: 5px;
+  margin-left: 5px;
+  max-width: 360px;
+  word-wrap: break-word;
+}
+.btn{
+  cursor: pointer;
+}

@@ -6,25 +6,16 @@
       </div>
       <div class="col-4">
         <div *ngIf="seeProfile">
-          <button type="text" (click)="doneInquiring()">Back</button>
+          <button type="text" (click)="doneInquiring()" class="btn btn-seccess">Back</button>
           <app-inquire-profile></app-inquire-profile>
         </div>
         <div *ngIf="!seeProfile">
           <h4>Online Users</h4>
-          <ul>
-            <li *ngFor="let user of users | async">
-              <table>
-                <tr>
-                  <td>
-                    {{user.username}}
-                  </td>
-                  <td (click)="checkoutProfile(user.$key)">
-                    Checkout Profile
-                  </td>
-                </tr>
-              </table>
-            </li>
-          </ul>
+          <div *ngFor="let user of users | async" class="user">
+            <span (click)="checkoutProfile(user.$key)">
+                  {{user.username}}
+            </span>
+          </div>
         </div>
       </div>
     </div>

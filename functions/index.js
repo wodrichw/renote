@@ -1,8 +1,6 @@
-/*
-********* Email
-*/
-
 var firebase = require("firebase");
+var swearjar = require('swearjar');
+var clam = require('clamscan');
 
 var config = {
     apiKey: "AIzaSyDiZ1YBms2zgTNk1jULGT-NpdBsraIhNVo",
@@ -15,6 +13,9 @@ var config = {
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
+/*
+********* Email
+*/
 
 exports.contactMessage = functions.database
     .ref('/emailMessages/{pushId}')
@@ -45,3 +46,22 @@ function sendEmail(emessage, name, emailAddr) {
     });
     server.send(emailData, function (err, message) { console.log(err || message); });
 }
+
+/*
+***** Forum posting sanitize
+*/
+exports.forumPost = functions.database
+    .ref('/messages/{msgId}')
+    .onWrite(event => {
+        console.log('message write!!! I am here');
+        const msg = event.data.val().body;
+        if (swearjar.profane(msg)) {
+            return event.data.ref.remove(); //remove message from database
+        }
+    });
+
+/*
+***** File Upload Malware sanitize
+*/
+exports.fileUpload = functions.storage
+    .ref('')

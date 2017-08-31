@@ -3,7 +3,7 @@
 
 }
 
-.selectable :hover{
+.selectable:hover{
  background:rgba(255,255,255, 0.75);
  border-radius: 10px; 
 }
@@ -14,4 +14,10 @@
 #profile-card{
   margin-right: 80px;
 }
-
+.dispName{
+  cursor: pointer;
+}
+.dispName:hover{
+  background:rgba(255,255,255, 0.75);
+  border-radius: 10px; 
+}

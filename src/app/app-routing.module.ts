@@ -11,7 +11,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
 import { DonateComponent } from './donate/donate.component';
-import { ProgressComponent } from './progress/progress.component';
 import { ConnectComponent } from './connect/connect.component';
 import { ForumComponent } from './forum/forum.component';
 
@@ -23,7 +22,6 @@ export const appROUTES: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'about', component: AboutComponent},
   { path: 'donate', component: DonateComponent},
-  { path: 'progress', component: ProgressComponent},
   { path: 'connect', component: ConnectComponent},
   { path: 'forum', component: ForumComponent}
 ];

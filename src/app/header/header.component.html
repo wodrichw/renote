@@ -14,8 +14,8 @@
       </li>
     </ul>
 
-    <div *ngIf="!loggedIn">
-      <a routerLink="login" style="color: black">signup or signin</a>
+    <div *ngIf="!loggedIn" class="selectable">
+      <a routerLink="login" class="nav-link"  style="color: black">signup or signin</a>
     </div>
 
     <div *ngIf="loggedIn" class="navbar" id="navbarText">
@@ -25,10 +25,10 @@
         </li>
         <li>
           <div class="dropdown right-text" id="profile-card">
-            <a class="nav-link dropdown-toggle selectable" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              style="color: black"> 
-          {{dispName}}
-        </a>
+            <a class="nav-link dropdown-toggle selectable dispName" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" style="color: black"> 
+              {{dispName}}
+            </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" routerLink="profile">Your Profile</a>
               <a class="dropdown-item" (click)="logout()">Logout</a>

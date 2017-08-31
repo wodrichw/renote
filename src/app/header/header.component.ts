@@ -10,7 +10,6 @@ const navLinksLeft: string[][] = [
   ['about', 'About'],
   ['donate', 'Donate'],
   ['connect', 'Connect'],
-  ['progress', 'Progress'],
   ['forum', 'Community Message Board'],
   ['login', 'Check Out Renote']
 ];

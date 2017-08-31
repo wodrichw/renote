@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class UserDataService {

@@ -1,18 +1,11 @@
 <h2>Message Board</h2>
+
 <div>
-  <virtual-scroll [items]="messages | async" (update)="viewPortItems = $event">
-    <div *ngFor="let item of viewPortItems">
-      <div>
-        <span>{{item?.author}}</span>
-        <p>{{item?.body}}</p>
-      </div>
-    </div>
-  </virtual-scroll>
-  <ul>
-    <li *ngFor="let message of messages | async">
-      <div>
-        <span>{{message.author}}</span>
-        <p>{{messege.body}}</p>
+  <ul id="message-list">
+    <li *ngFor="let message of messages | async" class="message">
+      <div (click)="setInquireUser(message.uid)">
+        <span class="username">{{message.username}}</span>
+        <p class="body">{{message.body}}</p>
       </div>
     </li>
   </ul>
@@ -20,6 +13,6 @@
 
 <div>
   <h4>Add a Comment</h4>
-  <input type="text" [(ngModel)]="newMessage">
-  <button type="button" (click)="submit"></button>
-</div>"
+  <textarea class="form-control" rows="4" [(ngModel)]="newMessage"></textarea>
+  <button type="button" (click)="submit()" class="btn btn-seccess">Submit</button>
+</div>
