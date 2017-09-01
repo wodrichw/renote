@@ -1,25 +1,13 @@
 {
   "database": {
-    "rules": {
-      ".read": true,
-      ".write": true,
-      "emailMessages": {
-        ".write": true,
-        ".read": true
-      },
-      "sentMessages": {
-        ".write": true,
-        ".read": true
-      }
-    }
+    "rules": "database.rules.json"
   },
   "hosting": {
     "public": "dist",
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
     ]
   }
 }
