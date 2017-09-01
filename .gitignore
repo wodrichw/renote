@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 #functions folder with server side code and private information
-functions
+#functions
